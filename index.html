@@ -3,57 +3,46 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width,
-               initial-scale=1.0,
-               maximum-scale=5.0,
-               user-scalable=yes,
-               viewport-fit=cover">
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=5.0,
+                   user-scalable=yes,
+                   viewport-fit=cover">
 
-<meta name="theme-color" content="#e8e2d6">
+    <meta name="theme-color" content="#e8e2d6">
 
-<meta property="og:title"
-      content="【追思】王文通先生 雲端訃告">
+    <meta property="og:title"
+          content="【追思】王文通先生 雲端訃告">
 
-<meta property="og:description"
-      content="敬邀親友們，陪伴王文通先生走完人生最後一程。">
+    <meta property="og:description"
+          content="敬邀親友們，陪伴王文通先生走完人生最後一程。">
 
-<meta property="og:image"
-      content="image/Write.png">
+    <meta property="og:image"
+          content="image/Write.png">
 
-<meta property="og:type"
-      content="website">
+    <meta property="og:type"
+          content="website">
 
-<link rel="icon"
-      href="image/logo.ico"
-      type="image/png">
+    <link rel="icon"
+          href="image/logo.ico"
+          type="image/png">
 
-<title>永恆思念：王文通先生</title>
+    <title>永恆思念：王文通先生</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;900&display=swap"
-      rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;900&display=swap"
+          rel="stylesheet">
 
 
 <style>
 
 /* =========================================================
-   基礎設定
+   基礎變數
 ========================================================= */
-
-@font-face {
-    font-family: 'ZF-Font';
-    src: url('Zf-Font.ttf') format('truetype');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Iansui';
-    src: url('Iansui-Regular.ttf') format('truetype');
-    font-display: swap;
-}
-
 
 :root {
 
@@ -61,8 +50,7 @@
 
     --paper: #f2ede4;
 
-    --card-inner:
-        rgba(232,226,214,0.6);
+    --card-inner: rgba(232,226,214,0.6);
 
     --ink: #2a2a2a;
 
@@ -72,11 +60,17 @@
 
     --sub-ink: #666666;
 
-    --max-w: 520px;
+    --border:
+        rgba(142,115,91,0.15);
 
-    --side-padding: 24px;
+    --max-w: 480px;
+
 }
 
+
+/* =========================================================
+   全域
+========================================================= */
 
 *,
 *::before,
@@ -98,6 +92,7 @@ html {
     width: 100%;
 
     overflow-x: hidden;
+
 }
 
 
@@ -120,53 +115,79 @@ body {
 
     line-height: 1.8;
 
-    word-break: normal;
-
-    overflow-wrap: normal;
-
     -webkit-font-smoothing: antialiased;
 
-    -webkit-text-size-adjust: 100%;
+    word-break: normal;
+
+    overflow-wrap: anywhere;
 
     -webkit-user-select: none;
 
     user-select: none;
+
 }
 
 
-img {
+/* 自製字型 */
+
+@font-face {
+
+    font-family: 'ZF-Font';
+
+    src:
+        url('Zf-Font.ttf')
+        format('truetype');
+
+    font-display: swap;
+
+}
+
+
+@font-face {
+
+    font-family: 'Iansui';
+
+    src:
+        url('Iansui-Regular.ttf')
+        format('truetype');
+
+    font-display: swap;
+
+}
+
+
+/* =========================================================
+   重要：不允許任何元素超出頁面
+========================================================= */
+
+img,
+video,
+iframe {
 
     max-width: 100%;
 
-    height: auto;
 }
 
 
 button,
 a {
 
-    -webkit-tap-highlight-color:
-        transparent;
+    max-width: 100%;
+
 }
 
 
-button {
+p,
+div,
+span {
 
-    font-family: inherit;
-}
-
-
-.u-block {
-
-    display: inline-block;
-
-    white-space: nowrap;
+    max-width: 100%;
 
 }
 
 
 /* =========================================================
-   主容器
+   App
 ========================================================= */
 
 .app-wrapper {
@@ -175,21 +196,20 @@ button {
 
     max-width: var(--max-w);
 
-    min-width: 0;
+    min-height: 100vh;
 
     margin: 0 auto;
 
     position: relative;
 
+    overflow: hidden;
+
     background: var(--paper);
-
-    min-height: 100vh;
-
-    overflow-x: hidden;
 
     box-shadow:
         0 0 60px
         rgba(0,0,0,0.08);
+
 }
 
 
@@ -222,6 +242,7 @@ button {
     pointer-events: none;
 
     white-space: nowrap;
+
 }
 
 
@@ -231,14 +252,17 @@ button {
 
 .header-top {
 
+    width: 100%;
+
     text-align: center;
 
     padding:
-        42px 20px 10px;
+        45px 20px 10px;
 
     position: relative;
 
     z-index: 10;
+
 }
 
 
@@ -246,7 +270,7 @@ button {
 
     width: 100px;
 
-    max-width: 30vw;
+    max-width: 100%;
 
     opacity: 0.8;
 
@@ -254,6 +278,7 @@ button {
         0 auto 20px;
 
     display: block;
+
 }
 
 
@@ -270,10 +295,13 @@ button {
     gap: 10px;
 
     flex-wrap: wrap;
+
 }
 
 
 .top-btn {
+
+    min-width: 0;
 
     display: inline-flex;
 
@@ -283,12 +311,12 @@ button {
 
     gap: 6px;
 
-    min-width: 0;
-
     padding:
-        9px 14px;
+        9px 15px;
 
     border-radius: 30px;
+
+    font-family: inherit;
 
     font-size: 13px;
 
@@ -307,19 +335,6 @@ button {
 
     color: var(--sub-ink);
 
-    transition:
-        background 0.3s,
-        border-color 0.3s;
-}
-
-
-.top-btn:hover {
-
-    background:
-        rgba(232,226,214,0.9);
-
-    border-color:
-        var(--gold-dark);
 }
 
 
@@ -332,6 +347,7 @@ button {
     flex-shrink: 0;
 
     opacity: 0.6;
+
 }
 
 
@@ -346,32 +362,36 @@ header {
     text-align: center;
 
     padding:
-        25px 20px 45px;
+        30px 20px 50px;
 
-    overflow: hidden;
 }
 
 
 .name-wrapper {
 
-    max-width: 100%;
+    width: 100%;
 
     font-size:
-        clamp(34px, 10vw, 48px);
+        clamp(36px,10vw,48px);
 
     font-weight: 900;
 
     letter-spacing:
-        clamp(0.08em, 1vw, 0.2em);
+        0.18em;
 
     margin:
-        30px auto 10px;
+        35px auto 10px;
 
     color: var(--ink);
+
+    white-space: normal;
+
 }
 
 
 .life-range {
+
+    width: 100%;
 
     font-size: 14px;
 
@@ -381,7 +401,6 @@ header {
 
     font-weight: 600;
 
-    line-height: 2;
 }
 
 
@@ -393,10 +412,10 @@ section {
 
     width: 100%;
 
-    min-width: 0;
+    max-width: 100%;
 
     padding:
-        65px var(--side-padding);
+        65px 24px;
 
     position: relative;
 
@@ -408,13 +427,12 @@ section {
         translateY(30px);
 
     transition:
-        opacity 1.5s
+        opacity 1.2s
         cubic-bezier(.16,1,.3,1),
 
-        transform 1.5s
+        transform 1.2s
         cubic-bezier(.16,1,.3,1);
 
-    overflow: hidden;
 }
 
 
@@ -424,31 +442,28 @@ section.visible {
 
     transform:
         translateY(0);
+
 }
 
 
-/* =========================================================
-   Section 標題
-========================================================= */
-
 .section-title {
-
-    display: block;
 
     width: 100%;
 
-    text-align: center;
-
     font-size: 20px;
 
-    letter-spacing:
-        clamp(5px, 2vw, 10px);
+    letter-spacing: 7px;
 
     color: var(--gold-dark);
 
     font-weight: 700;
 
-    margin-bottom: 45px;
+    margin-bottom: 40px;
+
+    display: block;
+
+    text-align: center;
+
 }
 
 
@@ -468,7 +483,8 @@ section.visible {
     margin:
         15px auto 0;
 
-    opacity: 0.5;
+    opacity: .5;
+
 }
 
 
@@ -480,22 +496,21 @@ section.visible {
 
     width: 100%;
 
-    max-width: 100%;
-
     height: auto;
-
-    border-radius: 2px;
-
-    box-shadow:
-        0 10px 30px
-        rgba(0,0,0,0.1);
 
     display: block;
 
     margin:
         0 auto 30px;
 
+    border-radius: 2px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.1);
+
     cursor: zoom-in;
+
 }
 
 
@@ -507,8 +522,6 @@ section.visible {
 
     width: 100%;
 
-    max-width: 100%;
-
     padding: 8px;
 
     background:
@@ -518,9 +531,8 @@ section.visible {
 
     box-shadow:
         inset 0 0 15px
-        rgba(0,0,0,0.05);
+        rgba(0,0,0,.05);
 
-    overflow: hidden;
 }
 
 
@@ -528,13 +540,12 @@ section.visible {
 
     width: 100%;
 
-    max-width: 100%;
-
     height: auto;
 
     display: block;
 
     cursor: zoom-in;
+
 }
 
 
@@ -549,11 +560,12 @@ section.visible {
     margin-top: 20px;
 
     letter-spacing: 2px;
+
 }
 
 
 /* =========================================================
-   日期
+   儀程日期
 ========================================================= */
 
 .date-hero {
@@ -561,7 +573,7 @@ section.visible {
     width: 100%;
 
     font-size:
-        clamp(54px, 17vw, 78px);
+        clamp(55px,17vw,78px);
 
     font-weight: 900;
 
@@ -573,7 +585,6 @@ section.visible {
 
     color: var(--ink);
 
-    white-space: nowrap;
 }
 
 
@@ -583,46 +594,47 @@ section.visible {
 
     text-align: center;
 
-    font-size:
-        clamp(12px, 3.6vw, 15px);
+    font-size: 14px;
 
-    letter-spacing:
-        clamp(1px, 1vw, 3px);
+    letter-spacing: 2px;
 
     color: var(--sub-ink);
 
-    margin-top: 15px;
+    margin-top: 18px;
 
-    white-space: nowrap;
 }
 
 
 /* =========================================================
-   儀程
+   【最重要】告別式時間資訊
 ========================================================= */
 
 .time-timeline {
 
     width: 100%;
 
-    max-width: 100%;
+    max-width: 390px;
 
     margin:
-        50px auto;
+        50px auto 45px;
 
     display: flex;
 
     flex-direction: column;
 
     gap: 18px;
+
 }
 
 
 /*
-    最重要：
-    每一列固定單行
-    不允許文字換行
-    超長文字自動縮小
+   每一列固定為：
+   左邊標籤
+   中間分隔線
+   右邊內容
+
+   不使用 nowrap
+   不會把地點裁掉
 */
 
 .time-row {
@@ -634,45 +646,43 @@ section.visible {
     display: grid;
 
     grid-template-columns:
-        minmax(70px, 82px)
-        minmax(0, 1fr);
+        minmax(82px, 0.85fr)
+        minmax(0, 1.7fr);
 
-    column-gap: 12px;
+    column-gap: 16px;
 
     align-items: center;
+
 }
 
+
+/* 左側 */
 
 .time-tag {
 
     min-width: 0;
 
-    font-size:
-        clamp(13px, 3.8vw, 18px);
+    color:
+        var(--gold-dark);
 
-    color: var(--gold-dark);
+    font-size: 16px;
 
     font-weight: 700;
 
-    letter-spacing:
-        clamp(0px, .5vw, 2px);
+    letter-spacing: 1px;
 
-    line-height: 1.2;
+    line-height: 1.45;
 
-    white-space: nowrap;
+    text-align: right;
 
-    overflow: hidden;
+    overflow-wrap: anywhere;
 
-    text-overflow: clip;
+    word-break: normal;
+
 }
 
 
-/*
-    右側主文字：
-    永遠單行
-    不換行
-    不超出容器
-*/
+/* 右側 */
 
 .time-main {
 
@@ -680,65 +690,49 @@ section.visible {
 
     width: 100%;
 
-    max-width: 100%;
-
-    height: 48px;
+    color: var(--ink);
 
     border-left:
         2px solid
         var(--gold-light);
 
-    padding-left:
-        clamp(12px, 3vw, 20px);
+    padding:
+        7px 0 7px 16px;
 
-    color: var(--ink);
+    font-size: 22px;
 
     font-weight: 800;
 
-    line-height: 1;
+    line-height: 1.45;
 
-    display: flex;
+    display: block;
 
-    align-items: center;
+    overflow-wrap: anywhere;
 
-    white-space: nowrap;
+    word-break: normal;
 
-    overflow: hidden;
-
-    text-overflow: clip;
-
-    font-variant-numeric:
-        tabular-nums;
-
-    /*
-       使用 clamp 配合 fit-content
-       長文字不會撐破頁面
-    */
-
-    font-size:
-        clamp(15px, 4.8vw, 25px);
 }
 
 
 /*
-   告別式地點專用：
-   在手機上會比時間再小一點，
-   確保「三峽昇華園［明禮廳］」
-   完整在同一行。
+   地點專用
+   讓三峽昇華園［明禮廳］完整顯示
 */
 
-.time-row.venue-row .time-main {
+.time-main.location {
 
     font-size:
-        clamp(12px, 3.8vw, 22px);
+        clamp(17px,4.5vw,21px);
 
-    letter-spacing:
-        clamp(-0.8px, -.1vw, 0px);
+    font-weight: 800;
+
+    line-height: 1.5;
+
 }
 
 
 /* =========================================================
-   出殯會場資訊
+   出殯會場資訊卡
 ========================================================= */
 
 .info-card {
@@ -747,29 +741,23 @@ section.visible {
 
     max-width: 100%;
 
+    min-width: 0;
+
     border-radius: 8px;
 
     padding:
         30px 20px;
 
-    margin-bottom: 0;
+    margin-top: 20px;
 
     background:
         var(--card-inner);
 
     border:
-        1px solid
-        rgba(142,115,91,0.15);
+        1px solid var(--border);
 
     text-align: center;
 
-    overflow: hidden;
-}
-
-
-.info-card + .info-card {
-
-    margin-top: 20px;
 }
 
 
@@ -777,19 +765,19 @@ section.visible {
 
     display: block;
 
-    font-size:
-        clamp(17px, 5vw, 20px);
+    width: 100%;
 
-    color: var(--gold-dark);
+    font-size: 19px;
+
+    color:
+        var(--gold-dark);
 
     font-weight: 700;
 
-    letter-spacing:
-        clamp(2px, 1vw, 4px);
+    letter-spacing: 3px;
 
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 
-    white-space: nowrap;
 }
 
 
@@ -797,8 +785,10 @@ section.visible {
 
     width: 100%;
 
+    max-width: 100%;
+
     font-size:
-        clamp(17px, 5vw, 22px);
+        clamp(18px,5vw,22px);
 
     font-weight: 700;
 
@@ -806,7 +796,10 @@ section.visible {
 
     line-height: 1.6;
 
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
+
+    word-break: normal;
+
 }
 
 
@@ -814,14 +807,18 @@ section.visible {
 
     width: 100%;
 
-    font-size:
-        clamp(12px, 3.8vw, 14px);
+    max-width: 100%;
+
+    font-size: 14px;
 
     color: var(--sub-ink);
 
     margin-top: 8px;
 
-    line-height: 1.8;
+    line-height: 1.7;
+
+    overflow-wrap: anywhere;
+
 }
 
 
@@ -833,23 +830,20 @@ section.visible {
 
     width: 100%;
 
-    max-width: 100%;
+    margin-top: 30px;
+
+    padding:
+        22px 18px;
 
     background:
-        rgba(180,151,122,0.05);
+        rgba(180,151,122,.05);
 
     border:
         1px solid
-        rgba(180,151,122,0.15);
+        rgba(180,151,122,.15);
 
     border-radius: 8px;
 
-    padding:
-        25px 18px;
-
-    margin-top: 30px;
-
-    overflow: hidden;
 }
 
 
@@ -857,25 +851,29 @@ section.visible {
 
     width: 100%;
 
-    font-size: 13px;
-
-    color: var(--sub-ink);
-
-    margin-bottom: 12px;
-
     display: flex;
 
     align-items: flex-start;
 
-    line-height: 1.6;
+    gap: 7px;
+
+    margin-bottom: 12px;
+
+    color: var(--sub-ink);
+
+    font-size: 13px;
+
+    line-height: 1.65;
 
     text-align: justify;
+
 }
 
 
 .notice-item:last-child {
 
     margin-bottom: 0;
+
 }
 
 
@@ -883,39 +881,39 @@ section.visible {
 
     content: "‧";
 
-    color: var(--gold-light);
+    flex: 0 0 auto;
+
+    color:
+        var(--gold-light);
 
     font-weight: 900;
 
-    margin-right: 8px;
-
-    flex-shrink: 0;
 }
 
 
 /* =========================================================
-   按鈕
+   通用按鈕
 ========================================================= */
 
 .btn-action {
-
-    display: block;
 
     width: 100%;
 
     max-width: 100%;
 
-    padding:
-        18px 12px;
+    display: block;
+
+    padding: 18px 12px;
 
     text-align: center;
 
     text-decoration: none;
 
+    font-family: inherit;
+
     font-size: 13px;
 
-    letter-spacing:
-        clamp(2px, 1.5vw, 5px);
+    letter-spacing: 3px;
 
     font-weight: 700;
 
@@ -923,29 +921,8 @@ section.visible {
 
     cursor: pointer;
 
-    transition:
-        opacity .3s,
-        transform .2s;
+    overflow-wrap: anywhere;
 
-    overflow: hidden;
-
-    white-space: nowrap;
-}
-
-
-.btn-action:hover {
-
-    opacity: .85;
-
-    transform:
-        translateY(-1px);
-}
-
-
-.btn-action:active {
-
-    transform:
-        translateY(0);
 }
 
 
@@ -955,15 +932,22 @@ section.visible {
         1px solid
         var(--gold-dark);
 
-    color: var(--gold-dark);
+    color:
+        var(--gold-dark);
 
-    background: transparent;
+    background:
+        transparent;
 
     margin-top: 20px;
+
 }
 
 
 .btn-solid {
+
+    width: 100%;
+
+    border: none;
 
     background:
         var(--gold-dark);
@@ -971,9 +955,8 @@ section.visible {
     color:
         var(--paper);
 
-    border: none;
-
     margin-top: 15px;
+
 }
 
 
@@ -987,18 +970,21 @@ section.visible {
 
     max-width: 100%;
 
+    min-width: 0;
+
     margin-bottom: 15px;
 
-    border-radius: 2px;
+    border-radius: 4px;
 
     overflow: hidden;
 
     background:
-        rgba(232,226,214,0.4);
+        rgba(232,226,214,.4);
 
     border:
         1px solid
-        rgba(142,115,91,0.1);
+        rgba(142,115,91,.1);
+
 }
 
 
@@ -1009,7 +995,7 @@ section.visible {
     min-width: 0;
 
     padding:
-        20px 20px;
+        20px;
 
     background: none;
 
@@ -1017,13 +1003,13 @@ section.visible {
 
     text-align: left;
 
+    font-family: inherit;
+
     font-size: 15px;
 
     font-weight: 600;
 
     color: var(--ink);
-
-    font-family: inherit;
 
     display: flex;
 
@@ -1031,56 +1017,37 @@ section.visible {
 
     align-items: center;
 
+    gap: 10px;
+
     cursor: pointer;
 
-    transition:
-        background .3s;
-
-    white-space: nowrap;
-}
-
-
-.drawer-btn:hover {
-
-    background:
-        rgba(232,226,214,.7);
 }
 
 
 .drawer-btn .toggle-icon {
 
+    flex: 0 0 auto;
+
     font-size: 20px;
 
-    line-height: 1;
+    color:
+        var(--gold-dark);
 
-    color: var(--gold-dark);
-
-    font-weight: 400;
-
-    transition:
-        transform .3s;
-
-    flex-shrink: 0;
-}
-
-
-.drawer-btn.open
-.toggle-icon {
-
-    transform:
-        rotate(45deg);
 }
 
 
 .drawer-content {
 
-    display: none;
-
     width: 100%;
 
     max-width: 100%;
 
-    padding: 20px;
+    min-width: 0;
+
+    display: none;
+
+    padding:
+        22px;
 
     background:
         rgba(232,226,214,.2);
@@ -1089,18 +1056,18 @@ section.visible {
         1px solid
         rgba(142,115,91,.1);
 
-    overflow: hidden;
 }
 
 
 .drawer-content.open {
 
     display: block;
+
 }
 
 
 /* =========================================================
-   花籃圖片
+   花籃
 ========================================================= */
 
 .img-grid {
@@ -1110,9 +1077,10 @@ section.visible {
     display: grid;
 
     grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+        repeat(2,minmax(0,1fr));
 
     gap: 15px;
+
 }
 
 
@@ -1124,19 +1092,16 @@ section.visible {
 
     cursor: zoom-in;
 
-    overflow: hidden;
 }
 
 
 .grid-item img {
 
-    display: block;
-
     width: 100%;
 
-    max-width: 100%;
-
     height: auto;
+
+    display: block;
 
     border-radius: 1px;
 
@@ -1144,15 +1109,6 @@ section.visible {
         0 5px 15px
         rgba(0,0,0,.08);
 
-    transition:
-        transform .3s;
-}
-
-
-.grid-item img:hover {
-
-    transform:
-        scale(1.02);
 }
 
 
@@ -1163,57 +1119,19 @@ section.visible {
     margin-top: 8px;
 
     font-weight: 600;
+
 }
 
 
 .grid-item span {
 
-    font-size: 12px;
-
-    color: var(--sub-ink);
-}
-
-
-/* =========================================================
-   交通資訊
-   只使用兩張圖片
-========================================================= */
-
-.transport-images {
-
-    width: 100%;
-
-    max-width: 100%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 18px;
-
-    overflow: hidden;
-}
-
-
-.transport-images img {
-
     display: block;
 
-    width: 100%;
+    font-size: 12px;
 
-    max-width: 100%;
+    color:
+        var(--sub-ink);
 
-    height: auto;
-
-    object-fit: contain;
-
-    border-radius: 4px;
-
-    box-shadow:
-        0 8px 25px
-        rgba(0,0,0,.10);
-
-    cursor: zoom-in;
 }
 
 
@@ -1227,13 +1145,15 @@ section.visible {
 
     max-width: 100%;
 
+    min-width: 0;
+
     background:
         rgba(142,115,91,.05);
 
     padding:
-        35px 20px;
+        32px 20px;
 
-    border-radius: 2px;
+    border-radius: 4px;
 
     border:
         1px solid
@@ -1241,7 +1161,6 @@ section.visible {
 
     text-align: center;
 
-    overflow: hidden;
 }
 
 
@@ -1254,6 +1173,7 @@ section.visible {
     gap: 10px;
 
     margin-top: 25px;
+
 }
 
 
@@ -1277,18 +1197,58 @@ section.visible {
 
     text-align: center;
 
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 
-    transition:
-        opacity .3s;
-
-    white-space: nowrap;
 }
 
 
-.c-btn:hover {
+/* =========================================================
+   【新版】會場交通資訊
+   只保留兩張圖片
+========================================================= */
 
-    opacity: .85;
+.transport-title {
+
+    width: 100%;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+}
+
+
+.transport-images {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+
+.transport-image {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    border-radius: 4px;
+
+    cursor: zoom-in;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,.10);
+
 }
 
 
@@ -1303,7 +1263,7 @@ section.visible {
     max-width: 100%;
 
     padding:
-        110px 10px;
+        120px 10px;
 
     background:
         var(--bg-deep);
@@ -1314,13 +1274,12 @@ section.visible {
         translateY(30px);
 
     transition:
-        opacity 1.5s
+        opacity 1.2s
         cubic-bezier(.16,1,.3,1),
 
-        transform 1.5s
+        transform 1.2s
         cubic-bezier(.16,1,.3,1);
 
-    overflow: hidden;
 }
 
 
@@ -1330,6 +1289,7 @@ section.visible {
 
     transform:
         translateY(0);
+
 }
 
 
@@ -1337,17 +1297,22 @@ section.visible {
 
     width: 100%;
 
+    max-width: 100%;
+
     display: flex;
 
     flex-direction: row-reverse;
 
     justify-content: center;
 
-    gap: 18px;
+    align-items: flex-start;
+
+    gap: 14px;
 
     height: 620px;
 
     overflow: hidden;
+
 }
 
 
@@ -1360,15 +1325,15 @@ section.visible {
         'ZF-Font',
         serif;
 
-    font-size: 24px;
+    font-size: 23px;
 
-    letter-spacing: 10px;
+    letter-spacing: 8px;
 
-    color: var(--sub-ink);
+    color:
+        var(--sub-ink);
 
     white-space: nowrap;
 
-    flex-shrink: 0;
 }
 
 
@@ -1380,12 +1345,41 @@ section.visible {
 
     transition:
         opacity .5s ease;
+
 }
 
 
 .ink-char.show {
 
     opacity: 1;
+
+}
+
+
+/* =========================================================
+   Footer
+========================================================= */
+
+footer {
+
+    width: 100%;
+
+    padding:
+        70px 20px 150px;
+
+    text-align: center;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    letter-spacing: 8px;
+
+    color:
+        var(--gold-dark);
+
+    opacity: .5;
+
 }
 
 
@@ -1397,10 +1391,11 @@ section.visible {
 
     position: fixed;
 
+    right:
+        max(12px, env(safe-area-inset-right));
+
     bottom:
         max(25px, env(safe-area-inset-bottom));
-
-    right: 14px;
 
     z-index: 999;
 
@@ -1409,37 +1404,31 @@ section.visible {
     flex-direction: column;
 
     gap: 12px;
+
 }
 
 
 .float-nav a {
 
     display: block;
+
 }
 
 
 .float-nav img {
 
-    width:
-        clamp(48px, 15vw, 62px);
+    width: 58px;
 
     height: auto;
 
+    display: block;
+
     filter:
         drop-shadow(
-            0 12px 20px
+            0 10px 18px
             rgba(0,0,0,.18)
         );
 
-    transition:
-        transform .2s;
-}
-
-
-.float-nav img:hover {
-
-    transform:
-        scale(1.08);
 }
 
 
@@ -1452,6 +1441,10 @@ section.visible {
     position: fixed;
 
     inset: 0;
+
+    width: 100vw;
+
+    height: 100vh;
 
     background:
         rgba(26,26,26,.98);
@@ -1466,13 +1459,13 @@ section.visible {
 
     padding: 20px;
 
-    overflow: hidden;
 }
 
 
 #lightbox.active {
 
     display: flex;
+
 }
 
 
@@ -1489,6 +1482,7 @@ section.visible {
     object-fit: contain;
 
     border-radius: 2px;
+
 }
 
 
@@ -1497,12 +1491,12 @@ section.visible {
     position: absolute;
 
     top:
-        max(20px, env(safe-area-inset-top));
+        max(18px, env(safe-area-inset-top));
 
     right: 20px;
 
     color:
-        rgba(255,255,255,.75);
+        rgba(255,255,255,.7);
 
     font-size: 28px;
 
@@ -1510,36 +1504,8 @@ section.visible {
 
     line-height: 1;
 
-    z-index: 10001;
-}
+    z-index: 2;
 
-
-/* =========================================================
-   Footer
-========================================================= */
-
-footer {
-
-    width: 100%;
-
-    padding:
-        60px 20px 150px;
-
-    text-align: center;
-
-    font-size:
-        clamp(17px, 5vw, 22px);
-
-    font-weight: 700;
-
-    letter-spacing:
-        clamp(5px, 3vw, 12px);
-
-    color: var(--gold-dark);
-
-    opacity: .5;
-
-    white-space: nowrap;
 }
 
 
@@ -1551,9 +1517,9 @@ footer {
 
     position: fixed;
 
-    bottom: 120px;
-
     left: 50%;
+
+    bottom: 110px;
 
     transform:
         translateX(-50%)
@@ -1568,13 +1534,13 @@ footer {
     color: #fff;
 
     padding:
-        12px 20px;
+        11px 20px;
 
     border-radius: 30px;
 
-    font-size: 14px;
+    font-size: 13px;
 
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 
     z-index: 9999;
 
@@ -1586,11 +1552,10 @@ footer {
         opacity .4s,
         transform .4s;
 
-    white-space: nowrap;
+    white-space: normal;
 
-    overflow: hidden;
+    text-align: center;
 
-    text-overflow: ellipsis;
 }
 
 
@@ -1601,6 +1566,7 @@ footer {
     transform:
         translateX(-50%)
         translateY(0);
+
 }
 
 
@@ -1608,56 +1574,78 @@ footer {
    小手機
 ========================================================= */
 
-@media (max-width: 390px) {
-
-    :root {
-
-        --side-padding: 18px;
-    }
-
+@media (max-width: 380px) {
 
     .header-top {
 
-        padding-top: 32px;
+        padding-left: 15px;
+
+        padding-right: 15px;
+
+    }
+
+
+    section {
+
+        padding-left: 18px;
+
+        padding-right: 18px;
+
     }
 
 
     .top-action-bar {
 
         gap: 7px;
+
     }
 
 
     .top-btn {
 
         padding:
-            8px 10px;
+            8px 11px;
 
         font-size: 12px;
+
     }
 
 
-    .name-wrapper {
+    .section-title {
 
-        font-size: 34px;
+        font-size: 18px;
 
-        letter-spacing:
-            .08em;
+        letter-spacing: 5px;
+
+    }
+
+
+    .time-timeline {
+
+        max-width: 100%;
+
+        gap: 15px;
+
     }
 
 
     .time-row {
 
         grid-template-columns:
-            68px minmax(0,1fr);
+            minmax(70px,.75fr)
+            minmax(0,1.65fr);
 
-        column-gap: 8px;
+        column-gap: 10px;
+
     }
 
 
     .time-tag {
 
-        font-size: 13px;
+        font-size: 14px;
+
+        letter-spacing: 0;
+
     }
 
 
@@ -1665,18 +1653,15 @@ footer {
 
         padding-left: 12px;
 
-        font-size:
-            clamp(14px, 4.5vw, 20px);
+        font-size: 20px;
+
     }
 
 
-    .time-row.venue-row
-    .time-main {
+    .time-main.location {
 
-        font-size:
-            clamp(11px, 3.5vw, 18px);
+        font-size: 16px;
 
-        letter-spacing: -1px;
     }
 
 
@@ -1684,24 +1669,35 @@ footer {
 
         padding:
             26px 15px;
+
+    }
+
+
+    .info-value {
+
+        font-size: 18px;
+
     }
 
 
     .drawer-content {
 
         padding: 15px;
+
     }
 
 
     .img-grid {
 
         gap: 10px;
+
     }
 
 
     .contact-btns {
 
-        gap: 7px;
+        gap: 8px;
+
     }
 
 
@@ -1709,13 +1705,13 @@ footer {
 
         font-size: 12px;
 
-        letter-spacing: 1px;
     }
 
 
     .ink-wrap {
 
-        gap: 10px;
+        gap: 8px;
+
     }
 
 
@@ -1723,7 +1719,15 @@ footer {
 
         font-size: 19px;
 
-        letter-spacing: 7px;
+        letter-spacing: 5px;
+
+    }
+
+
+    .float-nav img {
+
+        width: 52px;
+
     }
 
 }
@@ -1733,112 +1737,90 @@ footer {
    超小手機
 ========================================================= */
 
-@media (max-width: 340px) {
-
-    .top-btn {
-
-        padding:
-            7px 8px;
-
-        font-size: 11px;
-    }
-
+@media (max-width: 330px) {
 
     .time-row {
 
         grid-template-columns:
-            63px minmax(0,1fr);
+            64px
+            minmax(0,1fr);
 
-        column-gap: 6px;
+        column-gap: 8px;
+
     }
 
 
     .time-tag {
 
-        font-size: 12px;
+        font-size: 13px;
+
     }
 
 
     .time-main {
-
-        font-size:
-            13px;
 
         padding-left: 10px;
+
+        font-size: 18px;
+
     }
 
 
-    .time-row.venue-row
-    .time-main {
+    .time-main.location {
 
-        font-size:
-            10px;
+        font-size: 15px;
 
-        letter-spacing:
-            -1px;
     }
 
 
-    .date-sub {
+    .name-wrapper {
 
-        font-size: 11px;
+        font-size: 34px;
 
-        letter-spacing: 0;
-    }
+        letter-spacing: .12em;
 
-}
-
-
-/* =========================================================
-   平板 / 桌機
-========================================================= */
-
-@media (min-width: 768px) {
-
-    :root {
-
-        --max-w: 620px;
-
-        --side-padding: 36px;
-    }
-
-
-    .time-row {
-
-        grid-template-columns:
-            110px minmax(0,1fr);
-
-        column-gap: 18px;
-    }
-
-
-    .time-row.venue-row
-    .time-main {
-
-        font-size: 21px;
-    }
-
-
-    .transport-images {
-
-        gap: 25px;
     }
 
 }
 
 
 /* =========================================================
-   避免系統文字放大破壞版面
+   防止桌面內容放大
 ========================================================= */
 
-@supports (-webkit-touch-callout: none) {
+@media (min-width: 481px) {
 
-    input,
-    textarea,
-    button,
-    select {
+    body {
 
-        font-size: inherit;
+        background:
+            var(--bg-deep);
+
+    }
+
+}
+
+
+/* =========================================================
+   減少動畫
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior: auto;
+
+    }
+
+    section,
+    .calligraphy-area {
+
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+
     }
 
 }
@@ -1851,9 +1833,9 @@ footer {
 <body oncontextmenu="return false">
 
 
-<!-- =====================================================
+<!-- ======================================================
      背景音樂
-===================================================== -->
+====================================================== -->
 
 <audio id="bgm"
        loop
@@ -1872,158 +1854,143 @@ footer {
 <div class="app-wrapper">
 
 
-<div class="bg-watermark"
-     aria-hidden="true">
+    <div class="bg-watermark"
+         aria-hidden="true">
 
-    MEMORY
-
-</div>
-
-
-<!-- =====================================================
-     頂部操作列
-===================================================== -->
-
-<div class="header-top">
-
-    <img
-        src="image/logo.ico"
-        class="top-logo"
-        alt="祥安生命 Logo">
-
-
-    <div class="top-action-bar">
-
-        <button
-            class="top-btn"
-            id="bgmBtn"
-            onclick="toggleBGM()">
-
-            <img
-                id="bgmIcon"
-                src="https://img.icons8.com/material-outlined/24/777777/musical-notes.png"
-                alt="">
-
-            音樂
-
-        </button>
-
-
-        <button
-            class="top-btn"
-            onclick="copyText()">
-
-            <img
-                src="https://img.icons8.com/material-outlined/24/777777/copy.png"
-                alt="">
-
-            複製資訊
-
-        </button>
-
-
-        <button
-            class="top-btn"
-            onclick="shareLine()">
-
-            <img
-                src="https://img.icons8.com/material-rounded/24/8e735b/line-me.png"
-                alt="">
-
-            分享親友
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     主標題
-===================================================== -->
-
-<header>
-
-    <div class="name-wrapper u-block">
-
-        王文通先生
+        MEMORY
 
     </div>
 
 
-    <div class="life-range">
+    <!-- ==================================================
+         頂部
+    ================================================== -->
 
-        <span class="u-block">
+    <div class="header-top">
+
+        <img src="image/logo.ico"
+             class="top-logo"
+             alt="祥安生命 Logo">
+
+
+        <div class="top-action-bar">
+
+
+            <button class="top-btn"
+                    id="bgmBtn"
+                    onclick="toggleBGM()">
+
+                <img id="bgmIcon"
+                     src="https://img.icons8.com/material-outlined/24/777777/musical-notes.png"
+                     alt="">
+
+                音樂
+
+            </button>
+
+
+            <button class="top-btn"
+                    onclick="copyText()">
+
+                <img
+                    src="https://img.icons8.com/material-outlined/24/777777/copy.png"
+                    alt="">
+
+                複製資訊
+
+            </button>
+
+
+            <button class="top-btn"
+                    onclick="shareLine()">
+
+                <img
+                    src="https://img.icons8.com/material-rounded/24/8e735b/line-me.png"
+                    alt="">
+
+                分享親友
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         主標題
+    ================================================== -->
+
+    <header>
+
+        <div class="name-wrapper">
+
+            王文通先生
+
+        </div>
+
+
+        <div class="life-range">
 
             1935-2026
 
-        </span>
+        </div>
 
-    </div>
-
-</header>
+    </header>
 
 
 <main>
 
 
-<!-- =====================================================
-     第一節：追思
-===================================================== -->
+<!-- ======================================================
+     第一節
+====================================================== -->
 
-<section
-    class="reveal"
-    aria-label="告別式說明">
-
-
-    <img
-        src="image/IMG_3471.jpeg"
-        class="img-inner"
-        onclick="openLightbox(this.src)"
-        alt="王文通先生遺照">
+<section class="reveal"
+         aria-label="告別式說明">
 
 
-    <div
-        style="
-            text-align:center;
-            margin-top:50px;
+    <img src="image/IMG_3471.jpeg"
+         class="img-inner"
+         onclick="openLightbox(this.src)"
+         alt="王文通先生遺照">
+
+
+    <div style="
+        text-align:center;
+        margin-top:50px;
+    ">
+
+
+        <p style="
+            font-size:18px;
+            font-weight:600;
+            letter-spacing:4px;
+            margin-bottom:25px;
+            color:var(--gold-dark);
         ">
-
-
-        <p
-            style="
-                font-size:18px;
-                font-weight:600;
-                letter-spacing:4px;
-                margin-bottom:25px;
-                color:var(--gold-dark);
-            ">
 
             追思永存、德澤長留
 
         </p>
 
 
-        <p
-            style="
-                font-size:clamp(15px,4.2vw,17px);
-                color:var(--sub-ink);
-                line-height:2.8;
-                letter-spacing:1.8px;
-                padding:0 10px;
-            ">
-
+        <p style="
+            font-size:clamp(15px,4.2vw,17px);
+            color:var(--sub-ink);
+            line-height:2.8;
+            letter-spacing:1.5px;
+            padding:0 8px;
+        ">
 
             我們摯愛的
 
-            <span
-                class="u-block"
-                style="
-                    font-weight:700;
-                    color:var(--ink);
-                    font-size:1.1em;
-                ">
+            <span style="
+                font-weight:700;
+                color:var(--ink);
+                font-size:1.1em;
+            ">
 
                 王文通 先生
 
@@ -2031,33 +1998,26 @@ footer {
 
             <br>
 
-
             於民國 115 年 08 月 25 日
 
             <br>
-
 
             在家人親友的陪伴與思念中，
 
             <br>
 
-
             安詳辭世，圓滿人生旅程。
 
             <br><br>
-
 
             謹擇於
 
             <br>
 
-
-            <span
-                class="u-block"
-                style="
-                    color:var(--ink);
-                    font-weight:600;
-                ">
+            <span style="
+                color:var(--ink);
+                font-weight:600;
+            ">
 
                 民國 115 年 09 月 13 日（日）
 
@@ -2065,15 +2025,12 @@ footer {
 
             <br>
 
-
             於
 
-            <span
-                class="u-block"
-                style="
-                    color:var(--ink);
-                    font-weight:600;
-                ">
+            <span style="
+                color:var(--ink);
+                font-weight:600;
+            ">
 
                 三峽昇華園［明禮廳］
 
@@ -2081,9 +2038,7 @@ footer {
 
             <br>
 
-
             舉辦告別追思奠禮
-
 
         </p>
 
@@ -2092,14 +2047,12 @@ footer {
 </section>
 
 
-<!-- =====================================================
-     第二節：訃告正本
-===================================================== -->
+<!-- ======================================================
+     第二節：訃告
+====================================================== -->
 
-<section
-    class="reveal"
-    aria-label="訃告正本">
-
+<section class="reveal"
+         aria-label="訃告正本">
 
     <span class="section-title">
 
@@ -2110,11 +2063,10 @@ footer {
 
     <div class="obituary-wrap">
 
-        <img
-            src="image/IMG_3472.jpeg"
-            class="obituary-img"
-            onclick="openLightbox(this.src)"
-            alt="王文通先生訃告正本">
+        <img src="image/IMG_3472.jpeg"
+             class="obituary-img"
+             onclick="openLightbox(this.src)"
+             alt="王文通先生訃告正本">
 
     </div>
 
@@ -2125,17 +2077,15 @@ footer {
 
     </p>
 
-
 </section>
 
 
-<!-- =====================================================
-     第三節：告別奠禮儀程
-===================================================== -->
+<!-- ======================================================
+     第三節：儀程
+====================================================== -->
 
-<section
-    class="reveal"
-    aria-label="告別奠禮儀程">
+<section class="reveal"
+         aria-label="告別奠禮儀程">
 
 
     <span class="section-title">
@@ -2145,9 +2095,7 @@ footer {
     </span>
 
 
-    <div
-        class="date-hero"
-        aria-label="九月十三日">
+    <div class="date-hero">
 
         09.13
 
@@ -2161,105 +2109,85 @@ footer {
     </div>
 
 
-    <div
-        class="time-timeline"
-        role="list">
+    <!-- ================================================
+         告別式資訊
+    ================================================= -->
+
+    <div class="time-timeline">
 
 
         <!-- 出殯日期 -->
 
-        <div
-            class="time-row"
-            role="listitem">
+        <div class="time-row">
 
-
-            <span class="time-tag">
+            <div class="time-tag">
 
                 出殯日期
 
-            </span>
+            </div>
 
-
-            <span class="time-main">
+            <div class="time-main">
 
                 09.13
 
-            </span>
+            </div>
 
         </div>
 
 
         <!-- 告別式地點 -->
 
-        <div
-            class="time-row venue-row"
-            role="listitem">
+        <div class="time-row">
 
-
-            <span class="time-tag">
+            <div class="time-tag">
 
                 告別式地點
 
-            </span>
+            </div>
 
-
-            <span
-                class="time-main"
-                aria-label="三峽昇華園明禮廳">
+            <div class="time-main location">
 
                 三峽昇華園［明禮廳］
 
-            </span>
+            </div>
 
         </div>
 
 
         <!-- 家奠禮 -->
 
-        <div
-            class="time-row"
-            role="listitem">
+        <div class="time-row">
 
-
-            <span class="time-tag">
+            <div class="time-tag">
 
                 家奠禮
 
-            </span>
+            </div>
 
-
-            <span
-                class="time-main"
-                aria-label="上午七時四十分">
+            <div class="time-main">
 
                 07：40
 
-            </span>
+            </div>
 
         </div>
 
 
         <!-- 公奠禮 -->
 
-        <div
-            class="time-row"
-            role="listitem">
+        <div class="time-row">
 
-
-            <span class="time-tag">
+            <div class="time-tag">
 
                 公奠禮
 
-            </span>
+            </div>
 
-
-            <span
-                class="time-main"
-                aria-label="上午八時二十分">
+            <div class="time-main">
 
                 08：20
 
-            </span>
+            </div>
 
         </div>
 
@@ -2267,7 +2195,7 @@ footer {
     </div>
 
 
-    <!-- =================================================
+    <!-- ================================================
          出殯會場
     ================================================= -->
 
@@ -2305,16 +2233,15 @@ footer {
     </div>
 
 
-    <!-- =================================================
+    <!-- ================================================
          牌位
     ================================================= -->
 
-    <div
-        class="info-card"
-        style="
+    <div class="info-card"
+         style="
             margin-top:20px;
             border-style:dashed;
-        ">
+         ">
 
 
         <span class="info-label">
@@ -2362,7 +2289,7 @@ footer {
     </div>
 
 
-    <!-- =================================================
+    <!-- ================================================
          注意事項
     ================================================= -->
 
@@ -2397,11 +2324,12 @@ footer {
         </div>
 
 
-        <a
-            href="https://www.google.com/maps/search/?api=1&query=新北市三峽區溪北里介壽路三段260巷1號"
-            target="_blank"
-            rel="noopener"
-            class="btn-action btn-outline">
+        <!-- 導航 -->
+
+        <a href="https://www.google.com/maps/search/?api=1&query=新北市三峽區溪北里介壽路三段260巷1號"
+           target="_blank"
+           rel="noopener"
+           class="btn-action btn-outline">
 
             📍 開啟地圖導航（三峽昇華園）
 
@@ -2411,9 +2339,10 @@ footer {
     </div>
 
 
-    <button
-        class="btn-action btn-solid"
-        onclick="addCal()">
+    <!-- 行事曆 -->
+
+    <button class="btn-action btn-solid"
+            onclick="addCal()">
 
         📅 加入手機行事曆
 
@@ -2423,13 +2352,12 @@ footer {
 </section>
 
 
-<!-- =====================================================
+<!-- ======================================================
      第四節：致意資訊
-===================================================== -->
+====================================================== -->
 
-<section
-    class="reveal"
-    aria-label="致意資訊">
+<section class="reveal"
+         aria-label="致意資訊導引">
 
 
     <span class="section-title">
@@ -2439,19 +2367,17 @@ footer {
     </span>
 
 
-    <!-- =================================================
+    <!-- ==================================================
          花禮
-    ================================================= -->
+    ================================================== -->
 
     <div class="tool-drawer">
 
 
-        <button
-            class="drawer-btn"
-            onclick="toggleDrawer(this,'flower')"
-            aria-expanded="false"
-            aria-controls="flower">
-
+        <button class="drawer-btn"
+                onclick="toggleDrawer(this,'flower')"
+                aria-expanded="false"
+                aria-controls="flower">
 
             <span>
 
@@ -2460,30 +2386,24 @@ footer {
             </span>
 
 
-            <span
-                class="toggle-icon"
-                aria-hidden="true">
+            <span class="toggle-icon">
 
                 +
 
             </span>
 
-
         </button>
 
 
-        <div
-            id="flower"
-            class="drawer-content"
-            role="region">
+        <div id="flower"
+             class="drawer-content">
 
 
             <div class="img-grid">
 
 
-                <div
-                    class="grid-item"
-                    onclick="openLightbox('image/花籃A款.JPG')">
+                <div class="grid-item"
+                     onclick="openLightbox('image/花籃A款.JPG')">
 
                     <img
                         src="image/花籃A款.JPG"
@@ -2491,14 +2411,15 @@ footer {
 
                     <p>樣式 A</p>
 
-                    <span>NT$ 2,500 / 對</span>
+                    <span>
+                        NT$ 2,500 / 對
+                    </span>
 
                 </div>
 
 
-                <div
-                    class="grid-item"
-                    onclick="openLightbox('image/花籃B款.JPG')">
+                <div class="grid-item"
+                     onclick="openLightbox('image/花籃B款.JPG')">
 
                     <img
                         src="image/花籃B款.JPG"
@@ -2506,14 +2427,15 @@ footer {
 
                     <p>樣式 B</p>
 
-                    <span>NT$ 3,000 / 對</span>
+                    <span>
+                        NT$ 3,000 / 對
+                    </span>
 
                 </div>
 
 
-                <div
-                    class="grid-item"
-                    onclick="openLightbox('image/花籃C款.JPG')">
+                <div class="grid-item"
+                     onclick="openLightbox('image/花籃C款.JPG')">
 
                     <img
                         src="image/花籃C款.JPG"
@@ -2521,14 +2443,15 @@ footer {
 
                     <p>樣式 C</p>
 
-                    <span>NT$ 3,500 / 對</span>
+                    <span>
+                        NT$ 3,500 / 對
+                    </span>
 
                 </div>
 
 
-                <div
-                    class="grid-item"
-                    onclick="openLightbox('image/花籃D款.JPG')">
+                <div class="grid-item"
+                     onclick="openLightbox('image/花籃D款.JPG')">
 
                     <img
                         src="image/花籃D款.JPG"
@@ -2536,14 +2459,15 @@ footer {
 
                     <p>樣式 D</p>
 
-                    <span>NT$ 4,500 / 對</span>
+                    <span>
+                        NT$ 4,500 / 對
+                    </span>
 
                 </div>
 
 
-                <div
-                    class="grid-item"
-                    onclick="openLightbox('image/花籃E款.JPG')">
+                <div class="grid-item"
+                     onclick="openLightbox('image/花籃E款.JPG')">
 
                     <img
                         src="image/花籃E款.JPG"
@@ -2551,14 +2475,15 @@ footer {
 
                     <p>樣式 E</p>
 
-                    <span>NT$ 5,000 / 對</span>
+                    <span>
+                        NT$ 5,000 / 對
+                    </span>
 
                 </div>
 
 
-                <div
-                    class="grid-item"
-                    onclick="openLightbox('image/花籃F款.JPG')">
+                <div class="grid-item"
+                     onclick="openLightbox('image/花籃F款.JPG')">
 
                     <img
                         src="image/花籃F款.JPG"
@@ -2566,14 +2491,15 @@ footer {
 
                     <p>樣式 F</p>
 
-                    <span>NT$ 5,500 / 對</span>
+                    <span>
+                        NT$ 5,500 / 對
+                    </span>
 
                 </div>
 
 
-                <div
-                    class="grid-item"
-                    onclick="openLightbox('image/花籃G款.JPG')">
+                <div class="grid-item"
+                     onclick="openLightbox('image/花籃G款.JPG')">
 
                     <img
                         src="image/花籃G款.JPG"
@@ -2581,14 +2507,15 @@ footer {
 
                     <p>樣式 G</p>
 
-                    <span>NT$ 6,000 / 對</span>
+                    <span>
+                        NT$ 6,000 / 對
+                    </span>
 
                 </div>
 
 
-                <div
-                    class="grid-item"
-                    onclick="openLightbox('image/花籃H款.JPG')">
+                <div class="grid-item"
+                     onclick="openLightbox('image/花籃H款.JPG')">
 
                     <img
                         src="image/花籃H款.JPG"
@@ -2596,7 +2523,9 @@ footer {
 
                     <p>樣式 H</p>
 
-                    <span>NT$ 6,500 / 對</span>
+                    <span>
+                        NT$ 6,500 / 對
+                    </span>
 
                 </div>
 
@@ -2604,9 +2533,10 @@ footer {
             </div>
 
 
-            <div
-                class="contact-box"
-                style="margin-top:20px;">
+            <!-- 花禮聯絡 -->
+
+            <div class="contact-box"
+                 style="margin-top:20px;">
 
 
                 <span class="info-label">
@@ -2616,11 +2546,10 @@ footer {
                 </span>
 
 
-                <div
-                    style="
-                        font-size:18px;
-                        font-weight:700;
-                    ">
+                <div style="
+                    font-size:18px;
+                    font-weight:700;
+                ">
 
                     陳柏元 先生
 
@@ -2630,27 +2559,24 @@ footer {
                 <div class="contact-btns">
 
 
-                    <a
-                        href="tel:0938179858"
-                        class="c-btn"
-                        style="
-                            background:
-                            var(--gold-dark);
-                        ">
+                    <a href="tel:0938179858"
+                       class="c-btn"
+                       style="
+                           background:var(--gold-dark);
+                       ">
 
                         撥打電話
 
                     </a>
 
 
-                    <a
-                        href="https://line.me/ti/p/nZJmE8-b6X"
-                        target="_blank"
-                        rel="noopener"
-                        class="c-btn"
-                        style="
-                            background:#4a5d4e;
-                        ">
+                    <a href="https://line.me/ti/p/nZJmE8-b6X"
+                       target="_blank"
+                       rel="noopener"
+                       class="c-btn"
+                       style="
+                           background:#4a5d4e;
+                       ">
 
                         LINE 聯繫
 
@@ -2668,20 +2594,18 @@ footer {
     </div>
 
 
-    <!-- =================================================
-         會場交通
+    <!-- ==================================================
+         交通資訊
          ★ 只保留兩張圖片
-    ================================================= -->
+    ================================================== -->
 
     <div class="tool-drawer">
 
 
-        <button
-            class="drawer-btn"
-            onclick="toggleDrawer(this,'map_ref')"
-            aria-expanded="false"
-            aria-controls="map_ref">
-
+        <button class="drawer-btn"
+                onclick="toggleDrawer(this,'map_ref')"
+                aria-expanded="false"
+                aria-controls="map_ref">
 
             <span>
 
@@ -2690,46 +2614,92 @@ footer {
             </span>
 
 
-            <span
-                class="toggle-icon"
-                aria-hidden="true">
+            <span class="toggle-icon">
 
                 +
 
             </span>
 
-
         </button>
 
 
-        <div
-            id="map_ref"
-            class="drawer-content"
-            role="region">
+        <div id="map_ref"
+             class="drawer-content">
 
+
+            <div class="transport-title">
+
+
+                <div class="info-label">
+
+                    三峽昇華園
+
+                </div>
+
+
+                <div class="info-value">
+
+                    明禮廳
+
+                </div>
+
+
+                <div class="info-sub">
+
+                    新北市三峽區溪北里介壽路三段260巷1號
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ========================================
+                 交通圖片 1
+            ========================================= -->
 
             <div class="transport-images">
 
 
-                <!-- 交通圖片 1 -->
-
-                <img
-                    src="image/交通資訊1.jpg"
-                    alt="三峽昇華園會場交通資訊"
-                    onclick="openLightbox(this.src)"
-                    loading="lazy">
+                <img src="image/交通資訊1.jpg"
+                     class="transport-image"
+                     onclick="openLightbox(this.src)"
+                     alt="三峽昇華園交通資訊一">
 
 
-                <!-- 交通圖片 2 -->
+                <!-- ====================================
+                     交通圖片 2
+                ==================================== -->
 
-                <img
-                    src="image/交通資訊2.jpg"
-                    alt="三峽昇華園會場交通資訊"
-                    onclick="openLightbox(this.src)"
-                    loading="lazy">
+                <img src="image/交通資訊2.jpg"
+                     class="transport-image"
+                     onclick="openLightbox(this.src)"
+                     alt="三峽昇華園交通資訊二">
 
 
             </div>
+
+
+            <!-- 正確導航 -->
+
+            <a href="https://www.google.com/maps/search/?api=1&query=新北市三峽區溪北里介壽路三段260巷1號"
+               target="_blank"
+               rel="noopener"
+               class="btn-action btn-outline">
+
+                📍 Google Maps 導航
+
+            </a>
+
+
+            <a href="https://www.google.com/maps/dir/?api=1&destination=新北市三峽區溪北里介壽路三段260巷1號"
+               target="_blank"
+               rel="noopener"
+               class="btn-action btn-solid">
+
+                🚗 規劃開車路線
+
+            </a>
 
 
         </div>
@@ -2740,86 +2710,75 @@ footer {
 </section>
 
 
-<!-- =====================================================
+<!-- ======================================================
      書法致謝
-===================================================== -->
+====================================================== -->
 
-<div
-    class="calligraphy-area"
-    id="thanksSec"
-    aria-label="家眷致謝">
-
-
-    <div
-        class="ink-wrap"
-        aria-hidden="true">
+<div class="calligraphy-area"
+     id="thanksSec"
+     aria-label="家眷致謝">
 
 
-        <div
-            class="ink-line"
-            data-text="致 每一位溫暖的您">
+    <div class="ink-wrap"
+         aria-hidden="true">
+
+
+        <div class="ink-line"
+             data-text="致 每一位溫暖的您">
         </div>
 
 
-        <div
-            class="ink-line"
-            data-text="謝謝這段日子的關懷與陪伴">
+        <div class="ink-line"
+             data-text="謝謝這段日子的關懷與陪伴">
         </div>
 
 
-        <div
-            class="ink-line"
-            data-text="每一句問候 每一份情誼">
+        <div class="ink-line"
+             data-text="每一句問候 每一份情誼">
         </div>
 
 
-        <div
-            class="ink-line"
-            data-text="都在我們心中 化作最暖的光">
+        <div class="ink-line"
+             data-text="都在我們心中 化作最暖的光">
         </div>
 
 
-        <div
-            class="ink-line"
-            data-text="這份真誠厚情 我們將永誌於心">
+        <div class="ink-line"
+             data-text="這份真誠厚情 我們將永誌於心">
         </div>
 
 
-        <div
-            class="ink-line"
-            data-text="願 每一位親友平安順心">
+        <div class="ink-line"
+             data-text="願 每一位親友平安順心">
         </div>
 
 
-        <div
-            class="ink-line"
-            data-text="全體家眷 叩謝"
-            style="
-                margin-top:150px;
-                color:var(--ink);
-                font-weight:700;
-            ">
+        <div class="ink-line"
+             data-text="全體家眷 叩謝"
+             style="
+                 margin-top:150px;
+                 color:var(--ink);
+                 font-weight:700;
+             ">
         </div>
 
 
     </div>
 
-
 </div>
 
 
-<!-- =====================================================
+<!-- ======================================================
      禮儀服務
-===================================================== -->
+====================================================== -->
 
-<div
-    class="contact-box"
-    style="
+<div class="contact-box"
+     style="
         margin:
-        0 var(--side-padding) 80px;
+            0 24px 80px;
         width:
-        calc(100% - (var(--side-padding) * 2));
-    ">
+            calc(100% - 48px);
+     ">
 
 
     <span class="info-label">
@@ -2829,11 +2788,10 @@ footer {
     </span>
 
 
-    <div
-        style="
-            font-size:19px;
-            font-weight:700;
-        ">
+    <div style="
+        font-size:19px;
+        font-weight:700;
+    ">
 
         陳柏元 先生
 
@@ -2843,27 +2801,24 @@ footer {
     <div class="contact-btns">
 
 
-        <a
-            href="tel:0938179858"
-            class="c-btn"
-            style="
-                background:
-                var(--gold-dark);
-            ">
+        <a href="tel:0938179858"
+           class="c-btn"
+           style="
+               background:var(--gold-dark);
+           ">
 
             撥打電話
 
         </a>
 
 
-        <a
-            href="https://line.me/ti/p/nZJmE8-b6X"
-            target="_blank"
-            rel="noopener"
-            class="c-btn"
-            style="
-                background:#4a5d4e;
-            ">
+        <a href="https://line.me/ti/p/nZJmE8-b6X"
+           target="_blank"
+           rel="noopener"
+           class="c-btn"
+           style="
+               background:#4a5d4e;
+           ">
 
             LINE 聯繫
 
@@ -2888,35 +2843,30 @@ footer {
 </div>
 
 
-<!-- =====================================================
+<!-- ======================================================
      浮動快速聯絡
-===================================================== -->
+====================================================== -->
 
-<nav
-    class="float-nav"
-    aria-label="快速聯絡">
+<nav class="float-nav"
+     aria-label="快速聯絡">
 
 
-    <a
-        href="tel:0938179858"
-        aria-label="24小時專線">
+    <a href="tel:0938179858"
+       aria-label="24小時專線">
 
-        <img
-            src="image/24小時專線.png"
-            alt="24小時專線">
+        <img src="image/24小時專線.png"
+             alt="24小時專線">
 
     </a>
 
 
-    <a
-        href="https://line.me/ti/p/nZJmE8-b6X"
-        target="_blank"
-        rel="noopener"
-        aria-label="聯繫LINE">
+    <a href="https://line.me/ti/p/nZJmE8-b6X"
+       target="_blank"
+       rel="noopener"
+       aria-label="聯繫LINE">
 
-        <img
-            src="image/聯繫line.PNG"
-            alt="聯繫LINE">
+        <img src="image/聯繫line.PNG"
+             alt="聯繫LINE">
 
     </a>
 
@@ -2924,31 +2874,28 @@ footer {
 </nav>
 
 
-<!-- =====================================================
+<!-- ======================================================
      Lightbox
-===================================================== -->
+====================================================== -->
 
-<div
-    id="lightbox"
-    role="dialog"
-    aria-modal="true"
-    aria-label="圖片放大檢視">
+<div id="lightbox"
+     role="dialog"
+     aria-modal="true"
+     aria-label="圖片放大檢視">
 
 
-    <span
-        class="lb-close"
-        onclick="closeLightbox()"
-        aria-label="關閉">
+    <span class="lb-close"
+          onclick="closeLightbox()"
+          aria-label="關閉">
 
         ✕
 
     </span>
 
 
-    <img
-        id="lbi"
-        alt="放大圖片"
-        onclick="event.stopPropagation()">
+    <img id="lbi"
+         alt="放大圖片"
+         onclick="event.stopPropagation()">
 
 
 </div>
@@ -2996,7 +2943,7 @@ const FULL_INFO = `【🍀追思告別】王文通先生
 
 
 /* =========================================================
-   BGM
+   背景音樂
 ========================================================= */
 
 let bgmStarted = false;
@@ -3031,6 +2978,7 @@ function updateBgmIcon(isPlaying) {
             ? '暫停背景音樂'
             : '播放背景音樂'
     );
+
 }
 
 
@@ -3040,13 +2988,14 @@ function startBGM() {
 
     bgmStarted = true;
 
-    bgm.volume = 0.4;
+    bgm.volume = .4;
 
     bgm.play()
         .then(() =>
             updateBgmIcon(true)
         )
         .catch(() => {});
+
 }
 
 
@@ -3057,6 +3006,7 @@ function toggleBGM() {
         startBGM();
 
         return;
+
     }
 
 
@@ -3068,31 +3018,32 @@ function toggleBGM() {
             )
             .catch(() => {});
 
-    } else {
+    }
+
+    else {
 
         bgm.pause();
 
         updateBgmIcon(false);
 
     }
+
 }
 
 
-/*
-   第一次點擊頁面後播放
-*/
+/* 使用者第一次互動時啟動 */
 
 document.addEventListener(
     'click',
     startBGM,
-    { once:true }
+    {once:true}
 );
 
 
 document.addEventListener(
     'touchstart',
     startBGM,
-    { once:true }
+    {once:true}
 );
 
 
@@ -3121,33 +3072,37 @@ const observer =
     new IntersectionObserver(
         entries => {
 
-            entries.forEach(entry => {
+            entries.forEach(
+                entry => {
 
-                if (!entry.isIntersecting)
-                    return;
-
-
-                entry.target
-                    .classList
-                    .add('visible');
+                    if (!entry.isIntersecting)
+                        return;
 
 
-                if (
-                    entry.target.id === 'thanksSec' &&
-                    !writingStarted
-                ) {
+                    entry.target
+                        .classList
+                        .add('visible');
 
-                    writingStarted = true;
 
-                    startWriting();
+                    if (
+                        entry.target.id ===
+                        'thanksSec'
+                        &&
+                        !writingStarted
+                    ) {
+
+                        writingStarted = true;
+
+                        startWriting();
+
+                    }
 
                 }
-
-            });
+            );
 
         },
         {
-            threshold: 0.1
+            threshold:.1
         }
     );
 
@@ -3156,13 +3111,14 @@ document
     .querySelectorAll(
         'section.reveal, .calligraphy-area'
     )
-    .forEach(el =>
-        observer.observe(el)
+    .forEach(
+        el =>
+            observer.observe(el)
     );
 
 
 /* =========================================================
-   毛筆逐字動畫
+   毛筆逐字
 ========================================================= */
 
 function startWriting() {
@@ -3170,7 +3126,7 @@ function startWriting() {
     document
         .querySelectorAll('.ink-line')
         .forEach(
-            (line, lineIdx) => {
+            (line,lineIdx) => {
 
                 const text =
                     line.getAttribute(
@@ -3179,47 +3135,47 @@ function startWriting() {
 
                 if (!text) return;
 
-
                 line.innerHTML = '';
 
 
-                [...text].forEach(
-                    (char, charIdx) => {
+                [...text]
+                    .forEach(
+                        (char,charIdx) => {
 
-                        const span =
-                            document.createElement(
-                                'span'
+                            const span =
+                                document
+                                .createElement(
+                                    'span'
+                                );
+
+                            span.className =
+                                'ink-char';
+
+                            span.textContent =
+                                char;
+
+                            line.appendChild(
+                                span
                             );
 
 
-                        span.className =
-                            'ink-char';
+                            setTimeout(
+                                () =>
+                                    span
+                                    .classList
+                                    .add('show'),
 
+                                lineIdx * 1000
+                                +
+                                charIdx * 130
+                            );
 
-                        span.textContent =
-                            char;
-
-
-                        line.appendChild(span);
-
-
-                        setTimeout(
-                            () => {
-
-                                span.classList
-                                    .add('show');
-
-                            },
-
-                            lineIdx * 1200 +
-                            charIdx * 150
-                        );
-
-                    }
-                );
+                        }
+                    );
 
             }
         );
+
 }
 
 
@@ -3227,7 +3183,7 @@ function startWriting() {
    Drawer
 ========================================================= */
 
-function toggleDrawer(btn, id) {
+function toggleDrawer(btn,id) {
 
     const content =
         document.getElementById(id);
@@ -3274,11 +3230,6 @@ function toggleDrawer(btn, id) {
         String(!isOpen)
     );
 
-
-    btn.parentElement.style.background =
-        isOpen
-            ? 'rgba(232,226,214,.4)'
-            : 'rgba(232,226,214,.8)';
 }
 
 
@@ -3290,30 +3241,22 @@ function openLightbox(src) {
 
     if (!src) return;
 
-
     lbi.src = src;
 
-
-    lb.classList.add(
-        'active'
-    );
-
+    lb.classList.add('active');
 
     document.body.style.overflow =
         'hidden';
+
 }
 
 
 function closeLightbox() {
 
-    lb.classList.remove(
-        'active'
-    );
-
+    lb.classList.remove('active');
 
     document.body.style.overflow =
         '';
-
 
     setTimeout(
         () => {
@@ -3321,8 +3264,9 @@ function closeLightbox() {
             lbi.src = '';
 
         },
-        300
+        200
     );
+
 }
 
 
@@ -3336,10 +3280,7 @@ document.addEventListener(
     'keydown',
     e => {
 
-        if (
-            e.key === 'Escape' &&
-            lb.classList.contains('active')
-        ) {
+        if (e.key === 'Escape') {
 
             closeLightbox();
 
@@ -3360,24 +3301,23 @@ function showToast(msg) {
 
     clearTimeout(toastTimer);
 
+    toast.textContent = msg;
 
-    toast.textContent =
-        msg;
-
-
-    toast.classList.add(
-        'show'
-    );
+    toast.classList.add('show');
 
 
     toastTimer =
         setTimeout(
-            () =>
-                toast.classList
-                    .remove('show'),
+            () => {
 
+                toast.classList.remove(
+                    'show'
+                );
+
+            },
             2800
         );
+
 }
 
 
@@ -3394,44 +3334,41 @@ async function copyText() {
             window.isSecureContext
         ) {
 
-            await navigator.clipboard
-                .writeText(FULL_INFO);
+            await navigator
+                .clipboard
+                .writeText(
+                    FULL_INFO
+                );
 
-        } else {
+        }
 
-            const ta =
+        else {
+
+            const textarea =
                 document.createElement(
                     'textarea'
                 );
 
-
-            ta.value =
+            textarea.value =
                 FULL_INFO;
 
-
-            ta.style.position =
+            textarea.style.position =
                 'fixed';
 
-            ta.style.left =
+            textarea.style.left =
                 '-9999px';
 
-
             document.body.appendChild(
-                ta
+                textarea
             );
 
-
-            ta.select();
-
+            textarea.select();
 
             document.execCommand(
                 'copy'
             );
 
-
-            document.body.removeChild(
-                ta
-            );
+            textarea.remove();
 
         }
 
@@ -3440,8 +3377,9 @@ async function copyText() {
             '✅ 追思資訊已複製'
         );
 
+    }
 
-    } catch {
+    catch {
 
         showToast(
             '複製失敗，請手動複製'
@@ -3458,14 +3396,14 @@ async function copyText() {
 
 function shareLine() {
 
-    const text =
-        encodeURIComponent(
-            FULL_INFO
-        );
-
+    const url =
+        `https://line.me/R/msg/text/?${
+            encodeURIComponent(FULL_INFO)
+        }`;
 
     window.location.href =
-        `https://line.me/R/msg/text/?${text}`;
+        url;
+
 }
 
 
@@ -3485,66 +3423,70 @@ function addCal() {
 
     const details =
         '王文通先生追思告別奠禮\\n' +
+
         '出殯日期：民國115年09月13日（日）\\n' +
+
         '家奠禮：07：40\\n' +
+
         '公奠禮：08：20\\n' +
+
         '出殯地點：三峽昇華園［明禮廳］\\n' +
+
         '牌位安置：三峽昇華園 牌位區 No.30\\n' +
+
         '地址：新北市三峽區溪北里介壽路三段260巷1號';
 
 
     const location =
-        '三峽昇華園［明禮廳］';
+        '新北市三峽區溪北里介壽路三段260巷1號';
 
 
-    const ctz =
-        'Asia/Taipei';
-
-
-    const url =
+    const calendarURL =
         'https://www.google.com/calendar/render' +
+
         '?action=TEMPLATE' +
-        '&text=' +
-        encodeURIComponent(title) +
-        '&dates=' +
-        dates +
-        '&details=' +
-        encodeURIComponent(details) +
-        '&location=' +
-        encodeURIComponent(location) +
-        '&ctz=' +
-        encodeURIComponent(ctz);
+
+        `&text=${encodeURIComponent(title)}` +
+
+        `&dates=${dates}` +
+
+        `&details=${encodeURIComponent(details)}` +
+
+        `&location=${encodeURIComponent(location)}` +
+
+        '&ctz=Asia%2FTaipei';
 
 
     window.open(
-        url,
-        '_blank'
+        calendarURL,
+        '_blank',
+        'noopener'
     );
+
 }
 
 
 /* =========================================================
-   防止 Lightbox 開啟後背景滑動
+   圖片載入失敗提示
 ========================================================= */
 
-document.addEventListener(
-    'keydown',
-    e => {
+document
+    .querySelectorAll('img')
+    .forEach(
+        img => {
 
-        if (
-            e.key === 'Escape' &&
-            document
-                .getElementById('lightbox')
-                .classList
-                .contains('active')
-        ) {
+            img.addEventListener(
+                'error',
+                () => {
 
-            closeLightbox();
+                    img.style.opacity =
+                        '.35';
+
+                }
+            );
 
         }
-
-    }
-);
+    );
 
 </script>
 
